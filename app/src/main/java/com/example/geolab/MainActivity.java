@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
                 LocationManager locationManager = (LocationManager)
                         MainActivity.this.getSystemService(Context.LOCATION_SERVICE);
                 try {
-
+                    //запрос разрешения
                     ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
                     TimeUnit.SECONDS.sleep(5);
                 }
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
                 if(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
                 {
 
-
+                    //если разрешение дано, то обновляем геоданные
                     locationManager.requestLocationUpdates(
                             LocationManager.GPS_PROVIDER,
                             5000,
@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
                 }
                 else
                 {
+                    //иначе пользователь получает уведомление, что для определения геолокации нужно разрешение
                     tvSorry.setVisibility(View.VISIBLE);
                 }
 
