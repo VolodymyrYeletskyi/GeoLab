@@ -106,14 +106,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener{
 
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
     {
-        /*switch(requestCode)
-        {
-            case REQUEST_CODE_FINE_LOCATION:
-                if(grantResults.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                {
-                    FINE_LOCATION_GRANTED = true;
-                }
-        }*/
         if(ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
         {
             //если разрешение дано, то обновляем геоданные
